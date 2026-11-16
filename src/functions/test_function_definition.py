@@ -8,6 +8,8 @@ parenthesized list of formal parameters. The statements that form the body of th
 the next line, and must be indented.
 """
 
+import pytest
+
 
 def fibonacci_function_example(number_limit):
     """Generate a Fibonacci series up to number_limit.
@@ -121,3 +123,63 @@ def test_function_definition():
     greet_with_closure = compose_greet_func_with_closure('John')
 
     assert greet_with_closure() == 'Hello there, John!'
+
+
+def rectangle_measurements(width, height=None):
+    """Return the area and perimeter of a rectangle.
+
+    If height is omitted the rectangle is treated as a square. A function can return several
+    values at once by returning a tuple, which the caller can unpack into separate variables.
+    """
+
+    if height is None:
+        height = width
+
+    area = width * height
+    perimeter = 2 * (width + height)
+    return area, perimeter
+
+
+def test_function_parameters_and_return_values():
+    """Default parameters and multiple return values"""
+
+    # Both parameters supplied.
+    assert rectangle_measurements(3, 4) == (12, 14)
+
+    # height uses its default value, so the shape is a square.
+    assert rectangle_measurements(5) == (25, 20)
+
+    # The returned tuple can be unpacked into separate variables.
+    area, perimeter = rectangle_measurements(2, 6)
+    assert area == 12
+    assert perimeter == 16
+
+    # Arguments can also be passed by keyword, in any order.
+    assert rectangle_measurements(height=2, width=10) == (20, 24)
+
+
+def safe_divide(dividend, divisor):
+    """Divide two numbers after validating the input.
+
+    Functions should check their arguments and raise an exception with a clear message when the
+    input is invalid, instead of returning a misleading value.
+    """
+
+    if not isinstance(dividend, (int, float)) or not isinstance(divisor, (int, float)):
+        raise TypeError('Both arguments must be numbers')
+    if divisor == 0:
+        raise ValueError('Divisor must not be zero')
+    return dividend / divisor
+
+
+def test_function_input_validation():
+    """Input validation inside a function"""
+
+    assert safe_divide(10, 4) == 2.5
+    assert safe_divide(-9, 3) == -3
+
+    with pytest.raises(ValueError):
+        safe_divide(1, 0)
+
+    with pytest.raises(TypeError):
+        safe_divide('10', 2)

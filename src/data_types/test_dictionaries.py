@@ -91,3 +91,24 @@ def test_dictionary_get_entries():
     assert grades.get('history') is None
 
     assert grades.get('history', 0) == 0
+
+
+
+def test_dictionary_update_and_remove():
+    """Updating and removing dictionary entries"""
+
+    phone_book = {'Sara': '416-111-2222', 'Ali': '647-333-4444'}
+
+    phone_book['Ali'] = '905-555-6666'
+    assert phone_book['Ali'] == '905-555-6666'
+
+    phone_book.update({'Sara': '416-000-0000', 'John': '289-777-8888'})
+    assert phone_book['Sara'] == '416-000-0000'
+    assert len(phone_book) == 3
+
+    removed_number = phone_book.pop('John')
+    assert removed_number == '289-777-8888'
+    assert 'John' not in phone_book
+
+    phone_book.clear()
+    assert phone_book == {}

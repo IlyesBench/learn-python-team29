@@ -43,3 +43,22 @@ def test_nested_if_statement():
         status = "Underage"
 
     assert status == "Eligible to drive"
+
+
+
+def test_multiple_elif_branches():
+    """Test conditional statement with multiple elif branches"""
+    score = 85
+
+    if score >= 90:
+        grade = "A"
+    elif score >= 80:
+        grade = "B"
+    elif score >= 70:
+        grade = "C"
+    elif score >= 60:
+        grade = "D"
+    else:
+        grade = "F"
+
+    assert grade == "B"

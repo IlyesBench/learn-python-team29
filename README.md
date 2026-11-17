@@ -228,3 +228,6 @@ flake8 ./src --statistics --show-source --count
 ## Author
 
 - [@trekhleb](https://trekhleb.dev)
+
+## Team 29
+This copy is maintained by Team 29

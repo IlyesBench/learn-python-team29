@@ -77,3 +77,17 @@ def test_dictionary():
     assert dictionary_for_string_keys['sape'] == 4139
     assert dictionary_for_string_keys['guido'] == 4127
     assert dictionary_for_string_keys['jack'] == 4098
+
+def test_dictionary_get_entries():
+    """Getting values from a dictionary"""
+
+    grades = {'math': 85, 'english': 72}
+
+    
+    assert grades['math'] == 85
+
+    
+    assert grades.get('english') == 72
+    assert grades.get('history') is None
+
+    assert grades.get('history', 0) == 0

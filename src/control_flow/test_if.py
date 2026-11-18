@@ -24,6 +24,8 @@ def test_if_statement():
         conclusion = 'Number is greater than zero but less than one'
     elif number % 2 == 0:
         conclusion = 'Number is even'
+    elif number < 10:
+        conclusion = 'Number is a single digit'
     else:
         conclusion = 'Number bigger than or equal to one'    
     

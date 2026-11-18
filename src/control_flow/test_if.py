@@ -45,20 +45,22 @@ def test_nested_if_statement():
     assert status == "Eligible to drive"
 
 
-
 def test_multiple_elif_branches():
     """Test conditional statement with multiple elif branches"""
-    score = 85
+    scores = [95, 85, 72, 65, 40]
+    grades = []
 
-    if score >= 90:
-        grade = "A"
-    elif score >= 80:
-        grade = "B"
-    elif score >= 70:
-        grade = "C"
-    elif score >= 60:
-        grade = "D"
-    else:
-        grade = "F"
+    for score in scores:
+        if score >= 90:
+            grade = "A"
+        elif score >= 80:
+            grade = "B"
+        elif score >= 70:
+            grade = "C"
+        elif score >= 60:
+            grade = "D"
+        else:
+            grade = "F"
+        grades.append(grade)
 
-    assert grade == "B"
+    assert grades == ["A", "B", "C", "D", "F"]

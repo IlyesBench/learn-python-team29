@@ -26,3 +26,41 @@ def test_if_statement():
         conclusion = 'Number bigger than or equal to one'
 
     assert conclusion == 'Number bigger than or equal to one'
+
+
+def test_nested_if_statement():
+    """Test nested conditional statements"""
+    age = 20
+    has_license = True
+    status = "Ineligible"
+
+    if age >= 18:
+        if has_license:
+            status = "Eligible to drive"
+        else:
+            status = "Needs a license"
+    else:
+        status = "Underage"
+
+    assert status == "Eligible to drive"
+
+
+def test_multiple_elif_branches():
+    """Test conditional statement with multiple elif branches"""
+    scores = [95, 85, 72, 65, 40]
+    grades = []
+
+    for score in scores:
+        if score >= 90:
+            grade = "A"
+        elif score >= 80:
+            grade = "B"
+        elif score >= 70:
+            grade = "C"
+        elif score >= 60:
+            grade = "D"
+        else:
+            grade = "F"
+        grades.append(grade)
+
+    assert grades == ["A", "B", "C", "D", "F"]
